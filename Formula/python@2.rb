@@ -1,27 +1,12 @@
 class PythonAT2 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/2.7.17/Python-2.7.17.tar.xz"
-  sha256 "4d43f033cdbd0aa7b7023c81b0e986fd11e653b5248dac9144d508f11812ba41"
+  url "https://www.python.org/ftp/python/2.7.18/Python-2.7.18.tar.xz"
+  sha256 "b62c0e7937551d0cc02b8fd5cb0f544f9405bafc9a54d3808ed4594812edef43"
   revision 1
   head "https://github.com/python/cpython.git", branch: "2.7"
 
-  bottle do
-    sha256 catalina:    "accfaa922708f00afb69ab230199f96e6ecdddd248a1eca586ce1e5e5cfd732b"
-    sha256 mojave:      "54d3351d6be8268b2f5017894dcc8e083811dfa3812bdb9f79f989873b9a4542"
-    sha256 high_sierra: "cfd5c6eeac37065d19f527bb0798a9caf1928bab3340cd545224861a3c82f219"
-  end
-
-  # setuptools remembers the build flags python is built with and uses them to
-  # build packages later. Xcode-only systems need different flags.
-  pour_bottle? do
-    reason <<~EOS
-      The bottle needs the Apple Command Line Tools to be installed.
-        You can install them, if desired, with:
-          xcode-select --install
-    EOS
-    satisfy { MacOS::CLT.installed? }
-  end
+  # no bottle now
 
   depends_on "pkg-config" => :build
   depends_on "gdbm"
